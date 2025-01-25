@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/index.css">
+
+<form method="POST">
+    <div>
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" name="nome" placeholder="Nome">
+    </div>
+    <div>
+        <label for="usuario">Usuário</label>
+        <input id="usuario" type="text" name="usuario" placeholder="Usuário">
+    </div>
+    <div>
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" name="senha" placeholder="Senha">
+    </div>
+    <p><%= typeof err !== 'undefined' ? err : "" %></p>
+    
+    <button type="submit">Entrar</button>
+    <a href="/usuario/login">Ou faça login</a>
+</form>

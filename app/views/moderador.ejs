@@ -1,0 +1,62 @@
+<% if(typeof usuariosData === 'undefined') usuariosData = [] %>
+
+<div id="app">
+    <% if(typeof err !== 'undefined') { %>
+
+        <p><%= err %></p>
+
+    <% } %>
+    
+
+    
+    <% for(let usuario of usuariosData) { %>
+
+        <% let funcoes = usuario.Funcoes.map(f => f.dataValues.nome) %>
+        <form class="usuario--form" method="POST" action="/moderador/editar/<%= usuario.id %>">
+            <div>
+                <label>
+                    Id:
+                    <input type="text" name="id" value='<%= usuario.id %>' readonly>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Nome:
+                    <input type='text' name='nome' value='<%= usuario.nome %>'>
+                </label>
+            </div>
+            <div>
+                <label>
+                    Usuário:
+                    <input type='text' name='usuario' value='<%= usuario.usuario %>'>
+                </label>
+            </div>
+            <div>
+                <p>Funções: <%= funcoes.join(", ") %></p>
+            </div>
+            <button type="submit">Salvar</button>
+            <button onclick="deleteUsuario()">Deletar</button>
+        </form>
+
+    <% } %>
+</div>
+
+<script>
+    const deleteUsuario = () => {
+        const form = document.querySelector('.usuario--form');
+        form.action = '/moderador/deletar/' + form.id.value;
+        form.submit();
+    }
+</script>
+
+<style>
+    .usuario--form {
+        margin: auto;
+        text-align: center;
+        width: 400px;
+        border: 1px solid black;
+        border-radius: 15px;
+        padding: 2%;
+        margin-bottom: 10px;
+    }
+</style>

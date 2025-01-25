@@ -1,0 +1,30 @@
+<%
+
+let nome = "Desconhecido"
+let usuario = "UnknownGuy";
+let funcoes = [];
+
+if(usuarioData) {
+    ({ nome, usuario } = usuarioData);
+    funcoes = usuarioData.Funcoes.map(f => f.dataValues.nome)
+}
+
+%>
+
+<div id="app">
+    <img src="user.svg">
+    <h1><%= nome %></h1>
+    <p><%= usuario %></p>
+    <% if(funcoes.includes("moderador")) { %>
+        <a href="/moderador">Administrar</a>
+    <% } %>
+    <p>Você é: <%= funcoes.join(", ") %></p>
+    <a href="/usuario/logout">Logout</a>
+</div>
+
+<style>
+    #app {
+
+        text-align: center;
+    }
+</style>

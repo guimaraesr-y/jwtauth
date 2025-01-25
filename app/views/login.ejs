@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/index.css">
+
+<form method="POST">
+    <div>
+        <label for="usuario">Usuário</label>
+        <input id="usuario" type="text" name="usuario" placeholder="Usuário">
+    </div>
+    <div>
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" name="senha" placeholder="Senha">
+    </div>
+    <p><%= typeof err !== 'undefined' ? err : "" %></p>
+    <button type="submit">Entrar</button>
+    <a href="/usuario/registrar">Ou registre-se</a>
+</form>

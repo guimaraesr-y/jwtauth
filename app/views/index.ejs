@@ -1,0 +1,31 @@
+<%
+
+let nome = "Desconhecido";
+
+if(usuarioData) {
+    nome = usuarioData.nome;
+}
+
+%>
+
+<div id="app">
+    <h1>Olá, <%= nome %>!</h1>
+
+    <% if(!usuarioData) { %>
+
+        <a href="/usuario/login">Login</a>
+        <a href="/usuario/registrar">Cadastro</a>
+
+    <% } else { %>
+
+        <a href="/usuario">Perfil</a>
+        <a href="/usuario/logout">Logout</a>
+
+    <% } %>
+</div>
+
+<style>
+    #app {
+        text-align: center;
+    }
+</style>
